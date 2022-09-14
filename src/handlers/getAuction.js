@@ -1,6 +1,6 @@
-import AWS from "aws-sdk";
-import commonMiddleware from "../lib/commonMiddleware";
-import createError from "http-errors";
+import AWS from 'aws-sdk';
+import commonMiddleware from '../lib/commonMiddleware';
+import createError from 'http-errors';
 
 const dynamodb = new AWS.DynamoDB.DocumentClient();
 
@@ -16,7 +16,7 @@ export async function getAuctionById(id) {
 
     auction = result.Item;
   } catch (error) {
-    console.log("Error in fetching the auction by id", error);
+    console.log('Error in fetching the auction by id', error);
     throw new createError.InternalServerError(error);
   }
 

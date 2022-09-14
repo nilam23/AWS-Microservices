@@ -1,7 +1,7 @@
-import AWS from "aws-sdk";
-import commonMiddleware from "../lib/commonMiddleware";
-import createError from "http-errors";
-import { getAuctionById } from "./getAuction";
+import AWS from 'aws-sdk';
+import commonMiddleware from '../lib/commonMiddleware';
+import createError from 'http-errors';
+import { getAuctionById } from './getAuction';
 
 const dynamodb = new AWS.DynamoDB.DocumentClient();
 
@@ -35,7 +35,7 @@ async function placeBid(event, context) {
 
     updatedAuction = result.Attributes;
   } catch (error) {
-    console.log("Error in updating (placing a bid) an auction", error);
+    console.log('Error in updating (placing a bid) an auction', error);
     throw new createError.InternalServerError(error);
   }
 

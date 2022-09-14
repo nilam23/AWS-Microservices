@@ -9,6 +9,8 @@ async function createAuction(event, context) {
   // fetching data from event body
   const { title } = event.body;
   const now = new Date();
+  const endDate = new Date();
+  endDate.setHours(now.getHours() + 1);
 
   // creating the auction object
   const auction = {
@@ -16,6 +18,7 @@ async function createAuction(event, context) {
     title,
     status: 'OPEN',
     createdAt: now.toISOString(),
+    endingAt: endDate.toISOString(),
     highestBid: {
       amount: 0
     }
