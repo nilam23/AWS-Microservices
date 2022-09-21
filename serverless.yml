@@ -1,5 +1,7 @@
 service: sls-microservices
 
+frameworkVersion: '3'
+
 plugins:
   - serverless-bundle
   - serverless-pseudo-parameters
